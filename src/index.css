@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #FBF7EE;
+  --card: #FFFDF9;
+  --forest: #2E4B3C;
+  --forest-soft: #4C6B58;
+  --leaf: #6B9971;
+  --leaf-pale: #DCEAD0;
+  --mango: #F2A65A;
+  --mango-deep: #D98A3D;
+  --bark: #8B6244;
+  --line: #E4DCC9;
+}
+
+body {
+  background-color: #FBF7EE;
+  font-family: 'Sarabun', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #2E4B3C;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.font-fredoka {
+  font-family: 'Fredoka', 'Sarabun', sans-serif;
+}
+
+/* Custom scrollbar matching original styling */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #C4B59D;
+  border-radius: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #8B6244;
+}
+
+@keyframes dotBlink {
+  0%, 80%, 100% { opacity: 0.3; }
+  40% { opacity: 0.95; }
+}
+
+.dot-1 {
+  animation: dotBlink 1.2s infinite;
+}
+.dot-2 {
+  animation: dotBlink 1.2s infinite 0.2s;
+}
+.dot-3 {
+  animation: dotBlink 1.2s infinite 0.4s;
+}
+
+@keyframes pulseRecording {
+  0% { box-shadow: 0 0 0 0 rgba(228, 87, 76, 0.45); }
+  70% { box-shadow: 0 0 0 10px rgba(228, 87, 76, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(228, 87, 76, 0); }
+}
+
+.pulse-rec {
+  animation: pulseRecording 1.2s infinite;
+}

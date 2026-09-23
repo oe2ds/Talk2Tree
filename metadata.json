@@ -1,0 +1,6 @@
+{
+  "name": "Talk to Tree | สวนพฤกษศาสตร์อัจฉริยะ",
+  "description": "ต้นแบบแชทบอทประจำต้น สวนพฤกษศาสตร์โรงเรียน ตอบจากข้อมูลพฤกษศาสตร์จริงพร้อมเสียงบรรยายภาษาไทย By T.Laila",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

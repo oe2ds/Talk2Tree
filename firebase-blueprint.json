@@ -1,0 +1,76 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "preferredName": { "type": "string" },
+        "email": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "lastActive": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email"]
+    },
+    "TreeChatMessage": {
+      "title": "TreeChatMessage",
+      "description": "Chat message with trees stored per user",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "treeId": { "type": "string" },
+        "role": { "type": "string", "enum": ["user", "tree", "assistant"] },
+        "content": { "type": "string" },
+        "timestamp": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "treeId", "role", "content", "timestamp"]
+    },
+    "TreeNote": {
+      "title": "TreeNote",
+      "description": "Student field notes and saved botanical records",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "treeId": { "type": "string" },
+        "treeName": { "type": "string" },
+        "note": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "treeId", "note"]
+    },
+    "FavoriteTree": {
+      "title": "FavoriteTree",
+      "description": "User favorite / bookmarked trees in the botanical garden",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "treeId": { "type": "string" },
+        "favoritedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "treeId"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Stores user profile"
+    },
+    "/users/{userId}/messages/{messageId}": {
+      "schema": "TreeChatMessage",
+      "description": "Chat messages between user and trees"
+    },
+    "/users/{userId}/notes/{noteId}": {
+      "schema": "TreeNote",
+      "description": "Field notes saved by student"
+    },
+    "/users/{userId}/favorites/{treeId}": {
+      "schema": "FavoriteTree",
+      "description": "Favorite trees marked by student"
+    }
+  }
+}
